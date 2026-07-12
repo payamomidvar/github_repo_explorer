@@ -5,7 +5,7 @@ import '../repositories/github_repository.dart';
 class GetRepoDetail {
   const GetRepoDetail(this._repository);
 
-  final GithubRepository _repository;
+  final GitHubRepository _repository;
 
   Future<Result<GitHubRepo>> call({
     required String owner,

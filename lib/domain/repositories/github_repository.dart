@@ -1,7 +1,7 @@
 import '../core/result.dart';
 import '../entities/github_repo.dart';
 
-abstract class GithubRepository {
+abstract class GitHubRepository {
   Future<Result<List<GitHubRepo>>> searchRepositories({
     required String query,
     required int page,

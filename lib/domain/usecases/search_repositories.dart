@@ -5,7 +5,7 @@ import '../repositories/github_repository.dart';
 class SearchRepositories {
   const SearchRepositories(this._repository);
 
-  final GithubRepository _repository;
+  final GitHubRepository _repository;
 
   Future<Result<List<GitHubRepo>>> call({
     required String query,

@@ -5,7 +5,7 @@ import '../core/result.dart';
 class ToggleFavorite {
   ToggleFavorite(this._repository);
 
-  final GithubRepository _repository;
+  final GitHubRepository _repository;
 
   Future<Result<void>> call(GitHubRepo repo) {
     return _repository.toggleFavorite(repo);
