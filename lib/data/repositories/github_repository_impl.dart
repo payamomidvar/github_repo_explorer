@@ -9,8 +9,12 @@ import '../local/favorites_local_data_source.dart';
 import '../remote/github_api_client.dart';
 import '../remote/github_api_exceptions.dart';
 
-class GithubRepositoryImpl implements GitHubRepository {
-  GithubRepositoryImpl({required this._remote, required this._local});
+class GitHubRepositoryImpl implements GitHubRepository {
+  GitHubRepositoryImpl({
+    required GitHubApiClient remote,
+    required FavoritesLocalDataSource local,
+  })  : _remote = remote,
+        _local = local;
 
   final GitHubApiClient _remote;
   final FavoritesLocalDataSource _local;

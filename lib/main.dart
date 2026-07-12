@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'data/local/favorites_local_data_source.dart';
+import 'presentation/riverpod/providers.dart';
 
 import 'presentation/router/app_router.dart';
 
-void main() {
-  runApp(const ProviderScope(child: GithubExplorerApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final favoritesLocalDataSource = await FavoritesLocalDataSource.create();
+
+  runApp(
+     ProviderScope(
+      overrides: [
+        favoritesLocalDataSourceProvider.overrideWithValue(
+          favoritesLocalDataSource,
+        ),
+      ],
+      child: GithubExplorerApp(),
+    ),
+  );
 }
 
 class GithubExplorerApp extends ConsumerWidget {
