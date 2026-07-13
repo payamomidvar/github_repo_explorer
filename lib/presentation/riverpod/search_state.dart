@@ -35,6 +35,8 @@ class SearchState extends Equatable {
     );
   }
 
+  bool get isEmpty => query.isNotEmpty && repos.isEmpty;
+
   @override
   List<Object?> get props => [query, repos, page, hasReachedMax];
 }

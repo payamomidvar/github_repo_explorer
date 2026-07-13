@@ -9,6 +9,8 @@ class SearchNotifier extends AsyncNotifier<SearchState> {
 
   late final SearchRepositories _searchRepositories;
 
+  bool _isFetchingNextPage = false;
+
   @override
   Future<SearchState> build() {
     _searchRepositories = ref.read(searchRepositoriesProvider);
@@ -37,11 +39,15 @@ class SearchNotifier extends AsyncNotifier<SearchState> {
   }
 
   Future<void> loadNextPage() async {
+    if (_isFetchingNextPage) return;
+
     final current = state.value;
 
     if (current == null || current.hasReachedMax || current.query.isEmpty) {
       return;
     }
+    _isFetchingNextPage = true;
+
     final nextPage = current.page + 1;
     final result = await _searchRepositories(
       query: current.query,
@@ -58,9 +64,9 @@ class SearchNotifier extends AsyncNotifier<SearchState> {
       ),
       error: (failure) => AsyncError(failure, StackTrace.current),
     );
+    _isFetchingNextPage = false;
   }
 }
 
-final searchNotifierProvider = AsyncNotifierProvider<SearchNotifier, SearchState>(
-  SearchNotifier.new,
-);
+final searchNotifierProvider =
+    AsyncNotifierProvider<SearchNotifier, SearchState>(SearchNotifier.new);
