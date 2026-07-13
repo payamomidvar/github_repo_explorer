@@ -10,7 +10,7 @@ void main() async {
   final favoritesLocalDataSource = await FavoritesLocalDataSource.create();
 
   runApp(
-     ProviderScope(
+    ProviderScope(
       overrides: [
         favoritesLocalDataSourceProvider.overrideWithValue(
           favoritesLocalDataSource,
@@ -33,6 +33,7 @@ class GithubExplorerApp extends ConsumerWidget {
       darkTheme: ThemeData(useMaterial3: true, brightness: Brightness.dark),
       themeMode: ThemeMode.system,
       routerConfig: router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
