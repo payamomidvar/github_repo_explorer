@@ -12,7 +12,13 @@ class GitHubApiClient {
   final Dio _dio;
 
   static Dio _buildDio() {
-    final dio = Dio(BaseOptions(baseUrl: 'https://api.github.com'));
+    final dio = Dio(
+      BaseOptions(
+        baseUrl: 'https://api.github.com',
+        connectTimeout: const Duration(seconds: 10),
+        receiveTimeout: const Duration(seconds: 10),
+      ),
+    );
     dio.interceptors.add(_GitHubInterceptor());
     return dio;
   }
@@ -40,7 +46,9 @@ class GitHubApiClient {
     required String owner,
     required String name,
   }) async {
-    final response = await _dio.get<Map<String, dynamic>>('repos/$owner/$name');
+    final response = await _dio.get<Map<String, dynamic>>(
+      '/repos/$owner/$name',
+    );
     return GitHubRepoDto.fromJson(response.data!);
   }
 
