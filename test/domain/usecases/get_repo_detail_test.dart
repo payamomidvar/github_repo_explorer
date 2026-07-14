@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -24,6 +22,6 @@ void main() {
     expect(result, isA<Success<GitHubRepo>>());
     verify(
       () => repository.getRepoDetail(owner: 'flutter', name: 'flutter'),
-    ).call(1);
+    ).called(1);
   });
 }
