@@ -105,10 +105,10 @@ flutter run --dart-define=GITHUB_TOKEN=your_token_here
 
 ## Screenshots
 
-<!-- Add screenshots here once the app is running, e.g.: -->
-<!-- | Search | Repo Detail | Favorites | -->
-<!-- |---|---|---| -->
-<!-- | ![Search](docs/screenshots/search.png) | ![Detail](docs/screenshots/detail.png) | ![Favorites](docs/screenshots/favorites.png) | -->
+| Search | Repo Detail | Favorites |
+|---|---|---|
+| ![Search](docs/screenshots/search.png) | ![Detail](docs/screenshots/detail.png) | ![Favorites](docs/screenshots/favorites.png) |
+
 
 ## Before Publishing
 
