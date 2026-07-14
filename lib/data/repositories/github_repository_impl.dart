@@ -13,11 +13,12 @@ class GitHubRepositoryImpl implements GitHubRepository {
   GitHubRepositoryImpl({
     required GitHubApiClient remote,
     required FavoritesLocalDataSource local,
-  })  : _remote = remote,
-        _local = local;
+  }) : _remote = remote, // ignore: prefer_initializing_formals
+       _local = local; // ignore: prefer_initializing_formals
 
-  final GitHubApiClient _remote;
-  final FavoritesLocalDataSource _local;
+  final GitHubApiClient _remote; 
+  final FavoritesLocalDataSource _local; 
+
 
   @override
   List<GitHubRepo> getFavorites() {
