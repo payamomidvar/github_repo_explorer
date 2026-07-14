@@ -64,7 +64,7 @@ class GitHubRepositoryImpl implements GitHubRepository {
       if (_local.contains(repo.id)) {
         await _local.remove(repo.id);
       } else {
-        _local.add(FavoriteRepoModel.fromEntity(repo));
+        await _local.add(FavoriteRepoModel.fromEntity(repo));
       }
       return const Success(null);
     } catch (error) {
