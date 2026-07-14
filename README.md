@@ -91,8 +91,8 @@ flutter test
 ### Setup
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/payamomidvar/github_repo_explorer.git
+cd github_repo_explorer
 flutter pub get
 flutter run
 ```
